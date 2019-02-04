@@ -4,7 +4,7 @@ const util = require('util')
 async function main () {
   try {
     const pool = mysql.createPool({
-      connectionLimit: 10,
+      connectionLimit: 1000,
       host: process.env.DB_HOST || 'igonzalezdb.cm6hb8mfglop.us-east-1.rds.amazonaws.com',
       user: process.env.DB_USER || 'IGonzalez',
       password: process.env.DB_PASS || 'process.env.DB_PASS',
