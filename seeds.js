@@ -5,10 +5,10 @@ async function main () {
   try {
     const pool = mysql.createPool({
       connectionLimit: 10,
-      host: process.env.DB_HOST || 'localhost',
-      user: process.env.DB_USER || 'applicationuser',
-      password: process.env.DB_PASS || 'applicationuser',
-      database: process.env.DB_NAME || 'movie_db'
+      host: process.env.DB_HOST || 'igonzalezdb.cm6hb8mfglop.us-east-1.rds.amazonaws.com',
+      user: process.env.DB_USER || 'IGonzalez',
+      password: process.env.DB_PASS || 'process.env.DB_PASS',
+      database: process.env.DB_NAME || 'RampUp'
     })
     pool.query = util.promisify(pool.query)
 
@@ -36,7 +36,7 @@ async function main () {
     ]
     await pool.query(reviewersQuery, [reviewersValues])
 
-    const moviesQuery = 'INSERT INTO movies (title, release_year, score, reviewer, publication) VALUES ?'
+    const moviesQuery = 'INSERT INTO movies (title, release, score, reviewer, publication) VALUES ?'
     const moviesValues = [
       ['Suicide Squad', '2016', 8, 'Robert Smith', 'The Daily Reviewer'],
       ['Batman vs. Superman', '2016', 6, 'Chris Harris', 'International Movie Critic'],
