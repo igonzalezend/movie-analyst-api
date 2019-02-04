@@ -5,10 +5,10 @@ const mysql = require('mysql')
 const util = require('util')
 
 const pool = mysql.createPool({
-  host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'applicationuser',
-  password: process.env.DB_PASS || 'applicationuser',
-  database: process.env.DB_NAME || 'movie_db'
+  host: process.env.DB_HOST || 'igonzalezdb.cm6hb8mfglop.us-east-1.rds.amazonaws.com',
+  user: process.env.DB_USER || 'IGonzalez',
+  password: process.env.DB_PASS || 'process.env.DB_PASS',
+  database: process.env.DB_NAME || 'RampUp'
 })
 pool.query = util.promisify(pool.query)
 
@@ -16,7 +16,7 @@ pool.query = util.promisify(pool.query)
 app.get('/movies', async function (req, res) {
   try {
     const rows = await pool.query(
-      'select m.title, m.release_year, m.score, r.name as reviewer, p.name as publication from movies m,' +
+      'select m.title, m.release, m.score, r.name as reviewer, p.name as publication from movies m,' +
       'reviewers r, publications p where r.publication=p.name and m.reviewer=r.name'
     )
     res.json(rows)
@@ -50,7 +50,7 @@ app.get('/pending', async function (req, res) {
   try {
     const rows = await pool.query(
       'select m.title, m.release, m.score, r.name as reviewer, p.name as publication' +
-      'from movie_db.movies m, movie_db.reviewers r, movie_db.publications p where' +
+      'from RampUp.movies m, RampUp.reviewers r, RampUp.publications p where' +
       'r.publication=p.name and m.reviewer=r.name and m.release>=2017'
     )
     res.json(rows)
