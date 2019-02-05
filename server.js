@@ -16,8 +16,8 @@ pool.query = util.promisify(pool.query)
 app.get('/movies', async function (req, res) {
   try {
     const rows = await pool.query(
-      'select m.title, m.release, m.score, r.name as reviewer, p.name as publication from movies m,' +
-      'reviewers r, publications p where r.publication=p.name and m.reviewer=r.name'
+      'select m.title, m.release, m.score, r.name as reviewer, p.name as publication from Movies m,' +
+      'Reviewers r, Publications p where r.publication=p.name and m.reviewer=r.name'
     )
     res.json(rows)
   } catch (err) {
@@ -28,7 +28,7 @@ app.get('/movies', async function (req, res) {
 
 app.get('/reviewers', async function (req, res) {
   try {
-    const rows = await pool.query('select r.name, r.publication, r.avatar from reviewers r')
+    const rows = await pool.query('select r.name, r.publication, r.avatar from Reviewers r')
     res.json(rows)
   } catch (err) {
     console.error('API Error:', err)
@@ -38,7 +38,7 @@ app.get('/reviewers', async function (req, res) {
 
 app.get('/publications', async function (req, res) {
   try {
-    const rows = await pool.query('select r.name, r.publication, r.avatar from reviewers r')
+    const rows = await pool.query('select r.name, r.publication, r.avatar from Reviewers r')
     res.json(rows)
   } catch (err) {
     console.error('API Error:', err)
@@ -50,7 +50,7 @@ app.get('/pending', async function (req, res) {
   try {
     const rows = await pool.query(
       'select m.title, m.release, m.score, r.name as reviewer, p.name as publication' +
-      'from RampUp.movies m, RampUp.reviewers r, RampUp.publications p where' +
+      'from RampUp.Movies m, RampUp.Reviewers r, RampUp.Publications p where' +
       'r.publication=p.name and m.reviewer=r.name and m.release>=2017'
     )
     res.json(rows)
