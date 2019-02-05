@@ -36,7 +36,7 @@ async function main () {
     ]
     await pool.query(reviewersQuery, [reviewersValues])
 
-    const moviesQuery = 'INSERT INTO Movies (title, release, score, reviewer, publication) VALUES ?'
+    const moviesQuery = `INSERT INTO Movies (title, release, score, reviewer, publication) VALUES ?`
     const moviesValues = [
       ['Suicide Squad', '2016', 8, 'Robert Smith', 'The Daily Reviewer'],
       ['Batman vs. Superman', '2016', 6, 'Chris Harris', 'International Movie Critic'],
