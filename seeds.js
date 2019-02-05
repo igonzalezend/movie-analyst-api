@@ -38,11 +38,11 @@ async function main () {
 
     const moviesQuery = `INSERT INTO Movies (title, release_year, score, reviewer, publication) VALUES ?`
     const moviesValues = [
-      [`Suicide Squad`, `2016`, 8, `Robert Smith`, `The Daily Reviewer`]
+      [`Suicide Squad`, `2016`, 8, `Robert Smith`, `The Daily Reviewer`],
       ['Batman vs. Superman', '2016', 6, 'Chris Harris', 'International Movie Critic'],
       ['Captain America: Civil War', '2016', 9, 'Janet Garcia', 'MoviesNow'],
       ['Deadpool', '2016', 9, 'Andrew West', 'MyNextReview'],
-      ['Avengers: Age of Ultron', '2015', 7, 'Mindy Lee', 'Movies n\' Games'],
+      ['Avengers: Age of Ultron', '2015', 7, 'Mindy Lee', 'Movies Games'],
       ['Ant-Man', '2015', 8, 'Martin Thomas', 'TheOne'],
       ['Guardians of the Galaxy', '2014', 10, 'Anthony Miller', 'ComicBookHero.com'],
       ['Doctor Strange', '2016', 7, 'Anthony Miller', 'ComicBookHero.com'],
