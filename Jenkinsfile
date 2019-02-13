@@ -15,8 +15,8 @@ pipeline {
         stage("Build"){
             steps{
                 sh '''
-                    zip -r movie-analyst-api.zip movie-analyst-api
-                    zip -r movie-analyst-ui.zip movie-analyst-ui
+                    tar -czvf movie-analyst-api.tar.gz movie-analyst-api
+                    tar -czvf movie-analyst-ui.tar.gz movie-analyst-ui
                 '''
             }     
         }
