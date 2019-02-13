@@ -25,7 +25,8 @@ pipeline {
         }
 
         stage("Deploy"){
-            sshPublisher(publishers: 
+            steps{
+                sshPublisher(publishers: 
                 [sshPublisherDesc(configName: 'FrontEnd_1C', transfers: 
                     [sshTransfer(cleanRemote: false, 
                                     excludes: '', 
@@ -68,6 +69,8 @@ pipeline {
                                     removePrefix: '', 
                                     sourceFiles: 'movie-analyst-api.tar.gz')], 
                     usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+            }
+            
         }
     }
 }
