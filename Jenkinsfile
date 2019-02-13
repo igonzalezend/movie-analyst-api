@@ -15,6 +15,9 @@ pipeline {
         stage("Build"){
             steps{
                 sh '''
+                    cd movie-analyst-api && npm install
+                    cd ../movie-analyst-ui && npm install
+                    cd ..
                     tar -czvf movie-analyst-api.tar.gz movie-analyst-api
                     tar -czvf movie-analyst-ui.tar.gz movie-analyst-ui
                 '''
