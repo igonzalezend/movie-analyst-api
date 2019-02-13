@@ -26,49 +26,7 @@ pipeline {
 
         stage("Deploy"){
             steps{
-                sshPublisher(publishers: 
-                [sshPublisherDesc(configName: 'FrontEnd_1C', transfers: 
-                    [sshTransfer(cleanRemote: false, 
-                                    excludes: '', 
-                                    execCommand: 'tar -xvzf /home/ubuntu/exitmovie-analyst-ui.tar.gz -C /home/ubuntu/movie-analyst-ui', 
-                                    execTimeout: 120000, 
-                                    flatten: false, 
-                                    makeEmptyDirs: false, 
-                                    noDefaultExcludes: false, 
-                                    patternSeparator: '[, ]+', 
-                                    remoteDirectory: '/home/ubuntu', 
-                                    remoteDirectorySDF: false, 
-                                    removePrefix: '', 
-                                    sourceFiles: 'movie-analyst-ui.tar.gz')],
-                    usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false), 
-                sshPublisherDesc(configName: 'FrontEnd_1D', transfers: 
-                    [sshTransfer(cleanRemote: false, 
-                                    excludes: '', 
-                                    execCommand: 'tar -xvzf /home/ubuntu/movie-analyst-ui.tar.gz -C /home/ubuntu/movie-analyst-ui', 
-                                    execTimeout: 120000, 
-                                    flatten: false, 
-                                    makeEmptyDirs: false, 
-                                    noDefaultExcludes: false, 
-                                    patternSeparator: '[, ]+', 
-                                    remoteDirectory: '/home/ubuntu', 
-                                    remoteDirectorySDF: false, 
-                                    removePrefix: '', 
-                                    sourceFiles: 'movie-analyst-ui.tar.gz')], 
-                    usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false), 
-                sshPublisherDesc(configName: 'BackEnd_1C', transfers: 
-                    [sshTransfer(cleanRemote: false, 
-                                    excludes: '', 
-                                    execCommand: 'tar -xvzf /home/ubuntu/movie-analyst-api.tar.gz -C /home/ubuntu/movie-analyst-apii', 
-                                    execTimeout: 120000, 
-                                    flatten: false, 
-                                    makeEmptyDirs: false, 
-                                    noDefaultExcludes: false, 
-                                    patternSeparator: '[, ]+', 
-                                    remoteDirectory: '/home/ubuntu', 
-                                    remoteDirectorySDF: false, 
-                                    removePrefix: '', 
-                                    sourceFiles: 'movie-analyst-api.tar.gz')], 
-                    usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'FrontEnd_1C', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'tar -xvzf movie-analyst-ui.tar.gz -C /home/ubuntu/movie-analyst-ui', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'movie-analyst-ui.tar.gz')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false), sshPublisherDesc(configName: 'FrontEnd_1D', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'tar -xvzf movie-analyst-ui.tar.gz -C /home/ubuntu/movie-analyst-ui', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'movie-analyst-ui.tar.gz')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false), sshPublisherDesc(configName: 'BackEnd_1C', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'tar -xvzf movie-analyst-ui.tar.gz -C /home/ubuntu/movie-analyst-ui', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'movie-analyst-api.tar.gz')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
             }
             
         }
