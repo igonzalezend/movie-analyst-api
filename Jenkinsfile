@@ -30,7 +30,7 @@ pipeline {
                 [sshPublisherDesc(configName: 'FrontEnd_1C', transfers: 
                     [sshTransfer(cleanRemote: false, 
                                     excludes: '', 
-                                    execCommand: 'tar -xvzf movie-analyst-ui.tar.gz -C /home/ubuntu/movie-analyst-ui', 
+                                    execCommand: 'tar -xvzf /home/ubuntu/exitmovie-analyst-ui.tar.gz -C /home/ubuntu/movie-analyst-ui', 
                                     execTimeout: 120000, 
                                     flatten: false, 
                                     makeEmptyDirs: false, 
@@ -44,7 +44,7 @@ pipeline {
                 sshPublisherDesc(configName: 'FrontEnd_1D', transfers: 
                     [sshTransfer(cleanRemote: false, 
                                     excludes: '', 
-                                    execCommand: 'tar -xvzf movie-analyst-ui.tar.gz -C /home/ubuntu/movie-analyst-ui', 
+                                    execCommand: 'tar -xvzf /home/ubuntu/movie-analyst-ui.tar.gz -C /home/ubuntu/movie-analyst-ui', 
                                     execTimeout: 120000, 
                                     flatten: false, 
                                     makeEmptyDirs: false, 
@@ -58,7 +58,7 @@ pipeline {
                 sshPublisherDesc(configName: 'BackEnd_1C', transfers: 
                     [sshTransfer(cleanRemote: false, 
                                     excludes: '', 
-                                    execCommand: 'tar -xvzf movie-analyst-api.tar.gz -C /home/ubuntu/movie-analyst-apii', 
+                                    execCommand: 'tar -xvzf /home/ubuntu/movie-analyst-api.tar.gz -C /home/ubuntu/movie-analyst-apii', 
                                     execTimeout: 120000, 
                                     flatten: false, 
                                     makeEmptyDirs: false, 
