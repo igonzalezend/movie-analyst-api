@@ -11,8 +11,8 @@ pipeline {
             }
         }
 
-        stage("Preparing Artifacts"){
+        /**stage("Preparing Artifacts"){
             
-        }
+        }**/
     }
 }
