@@ -12,8 +12,13 @@ pipeline {
             }
         }
 
-        /**stage("Build"){
-            
-        }**/
+        stage("Build"){
+            steps{
+                sh '''
+                    zip -r movie-analyst-api.zip movie-analyst-api
+                    zip -r movie-analyst-ui.zip movie-analyst-ui
+                '''
+            }     
+        }
     }
 }
