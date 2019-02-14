@@ -50,7 +50,10 @@ pipeline{
     stages
     {
         stage("Hola mundo"){
-            sh 'echo KO'
+            steps{
+                sh 'echo KO'
+            }
+            
         }
     }
 }
