@@ -49,9 +49,12 @@ pipeline{
 
     stages
     {
-        stage("Hola mundo"){
+        stage("Build"){
             steps{
-                sh 'ls'
+                sh '''
+                    cd ..
+                    ls
+                '''
             }
             
         }
