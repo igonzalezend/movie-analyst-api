@@ -52,12 +52,19 @@ pipeline{
         stage("Build"){
             steps{
                 sh '''
+                    npm install
                     cd ..
                     tar -czf movie-analyst-api.tar.gz RampUp_movie-analyst-api
-                    ls
                 '''
             }
             
         }
+
+        tage("Deploy"){
+            steps{
+                sh '''
+                    ls
+                '''
+            }
     }
 }
