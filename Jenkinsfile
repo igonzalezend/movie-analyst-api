@@ -60,11 +60,12 @@ pipeline{
             
         }
 
-        tage("Deploy"){
+        stage("Deploy"){
             steps{
                 sh '''
                     ls
                 '''
             }
+        }
     }
 }
