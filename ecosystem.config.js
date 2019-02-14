@@ -1,7 +1,7 @@
 module.exports = {
     apps : [{
       name: "Movies_API",
-      script: "./server.js",
+      script: "./RampUp_movie-analyst-api/server.js",
       env: {
         NODE_ENV: "development",
         DB_HOST: "igonzalezdb.cm6hb8mfglop.us-east-1.rds.amazonaws.com",
