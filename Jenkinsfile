@@ -53,6 +53,7 @@ pipeline{
             steps{
                 sh '''
                     cd ..
+                    tar -czf movie-analyst-api.tar.gz RampUp_movie-analyst-api
                     ls
                 '''
             }
