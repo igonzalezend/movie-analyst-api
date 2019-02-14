@@ -51,7 +51,7 @@ pipeline{
     {
         stage("Hola mundo"){
             steps{
-                sh 'echo KO'
+                sh 'ls'
             }
             
         }
