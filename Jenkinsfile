@@ -1,4 +1,4 @@
-pipeline {
+/*pipeline {
     agent any
 
     stages{
@@ -40,6 +40,17 @@ tar -xzf movie-analyst-api.tar.gz
 cd movie-analyst-api 
 pm2 start''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'movie-analyst-api.tar.gz')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])        
             }
+        }
+    }
+}*/
+
+pipeline{
+    agent any
+
+    stages
+    {
+        stage("Hola mundo"){
+            sh 'echo KO'
         }
     }
 }
