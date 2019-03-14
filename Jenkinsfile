@@ -30,7 +30,9 @@ pipeline {
 		stage('Deploy') {       
 			steps {
 				echo 'Deploying....'
+				
 				withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'ivdgonzalezco', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+					sh 'aws configure set region us-east-1'
 					sh 'chmod +x deployment_script.sh'
 					sh './deployment_script.sh $BUILD_NUMBER'
 				}                                 
