@@ -8,6 +8,6 @@ sed -i "s;%BUILD_NUMBER%;${BUILD_NUMBER};g" backend_service.json
 aws ecs register-task-definition --family ${TASK_FAMILY} --cli-input-json file://backend_service.json
 
 # Update the service with the new task definition and desired count
-TASK_REVISION=`aws ecs describe-task-definition --task-definition ${TASK_FAMILY} | egrep "revision" | tr "/" " " | awk '{print $2}' | sed 's/"$//'`
+TASK_REVISION=`aws ecs describe-task-definition --task-definition ${TASK_FAMILY} | egrep "definition" | tr "/" " " | awk '{print $3}' | sed 's/"$//'`
 
 aws ecs update-service --cluster IGonzalez_ECS_Cluster --service ${SERVICE_NAME} --task-definition ${TASK_FAMILY}:${TASK_REVISION} --desired-count 2
