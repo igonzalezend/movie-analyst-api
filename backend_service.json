@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Backend",
+        "image": "igonzalezend/movie-analyst-api:%BUILD_NUMBER%",
+        "cpu": 2,
+        "memory": 256,
+        "links": [],
+        "portMappings": [
+            {
+                "containerPort": 3000,
+                "hostPort": 3000,
+                "protocol": "tcp"
+            }
+        ],
+        "essential": true,
+        "entryPoint": [],
+        "command": [],
+        "environment": [],
+        "mountPoints": [],
+        "volumesFrom": []
+    }
+]
