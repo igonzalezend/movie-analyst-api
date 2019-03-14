@@ -13,4 +13,4 @@ TASK_REVISION=`aws ecs describe-task-definition --task-definition ${TASK_FAMILY}
 
 aws ecs stop-task --cluster ${CLUSTER} --task $(aws ecs list-tasks --cluster ${CLUSTER} --service ${SERVICE_NAME} --output text --region us-east-1 --query taskArns[0])
 
-aws ecs update-service --cluster ${CLUSTER} --service ${SERVICE_NAME} --task-definition ${TASK_FAMILY}:${TASK_REVISION} --desired-count 2
+aws ecs update-service --cluster ${CLUSTER} --service ${SERVICE_NAME} --desired-count 2 --force-new-deployment
