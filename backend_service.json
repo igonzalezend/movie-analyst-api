@@ -1,22 +1,30 @@
-[
-    {
-        "name": "Backend",
-        "image": "igonzalezend/movie-analyst-api:%BUILD_NUMBER%",
-        "cpu": 2,
-        "memory": 256,
-        "links": [],
-        "portMappings": [
+{
+    "taskDefinition": {
+        "volumes": [],
+        "taskDefinitionArn": "arn:aws:ecs:us-east-1:913292640136:task-definition/IGonzalez_ECS_TD_Backend:25",
+        "containerDefinitions": [
             {
-                "containerPort": 3000,
-                "hostPort": 3000,
-                "protocol": "tcp"
+                "name": "Backend",
+                "image": "igonzalezend/movie-analyst-api:%BUILD_NUMBER%",
+                "cpu": 2,
+                "memory": 256,
+                "links": [],
+                "portMappings": [
+                    {
+                        "containerPort": 3000,
+                        "hostPort": 3000,
+                        "protocol": "tcp"
+                    }
+                ],
+                "essential": true,
+                "entryPoint": [],
+                "command": [],
+                "environment": [],
+                "mountPoints": [],
+                "volumesFrom": []
             }
         ],
-        "essential": true,
-        "entryPoint": [],
-        "command": [],
-        "environment": [],
-        "mountPoints": [],
-        "volumesFrom": []
+        "family": "IGonzalez_ECS_TD_Backend",
+        "revision": 25
     }
-]
+}
