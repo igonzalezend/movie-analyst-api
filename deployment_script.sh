@@ -11,6 +11,6 @@ aws ecs register-task-definition --family ${TASK_FAMILY} --cli-input-json file:/
 # Update the service with the new task definition and desired count
 TASK_REVISION=`aws ecs describe-task-definition --task-definition ${TASK_FAMILY} | egrep "revision" | tr "/" " " | awk '{print $2}' | sed 's/"$//'`
 
-aws ecs stop-task --cluster ${CLUSTER} --task $(aws ecs list-tasks --cluster ${CLUSTER} --service ${SERVICE_NAME} --output text --region us-east-1 --query taskArns[0])
+aws ecs stop-task --cluster ${CLUSTER} --region us-east-1 --task $(aws ecs list-tasks --cluster ${CLUSTER} --service ${SERVICE_NAME} --output text --region us-east-1 --query taskArns[0])
 
 aws ecs update-service --cluster ${CLUSTER} --service ${SERVICE_NAME} --task-definition ${TASK_FAMILY}:${TASK_REVISION} --desired-count 2 --force-new-deployment
