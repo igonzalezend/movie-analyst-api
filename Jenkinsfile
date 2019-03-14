@@ -7,30 +7,13 @@ pipeline {
 
 	agent any    
 
-	stages {                 
-		stage('Prepare') {                         
-			steps {                                 
-				echo 'Preparing..'
-				sh  'npm install'
-			}                 
-		}                 
-		/**stage('Build') {                         
+	stages {                                
+		stage('Build') {                         
 			steps {                                 
 				echo 'Building..'
-
 				script {
 					dockerImage = docker.build imageTag
 				}             
-			}                 
-		}                 
-		stage('Test') {                         
-			steps {                                 
-				echo 'Testing...'
-				script{
-					dockerImage.inside {
-						sh 'npm test'
-					}
-				}
 			}                 
 		}
 		stage('push') {
@@ -43,7 +26,7 @@ pipeline {
 				}
 				sh 'docker rmi --force $imageTag'
 			}
-		}                 
+		}/**                 
 		stage('Deploy') {                         
 			steps {                                 
 				echo 'Deploying....'
