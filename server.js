@@ -5,10 +5,10 @@ const mysql = require('mysql')
 const util = require('util')
 
 const pool = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME
+  host: "terraform-20190313153613160000000001.ckipfp2in8ld.us-east-1.rds.amazonaws.com",
+  user: "IGonzalez",
+  password: "Crackpokemon94!",
+  database: "IGonzalez_DB"
 })
 pool.query = util.promisify(pool.query)
 
@@ -78,5 +78,5 @@ app.get('/', function (req, res) {
 })
 
 console.log('server listening through port: ' + process.env.PORT)
-app.listen(process.env.PORT || 3000)
+app.listen(3000)
 module.exports = app

@@ -5,10 +5,10 @@ async function main () {
   try {
     const pool = mysql.createPool({
       connectionLimit: 1000,
-      host: process.env.DB_HOST,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASS,
-      database: process.env.DB_NAME
+      host: "terraform-20190313153613160000000001.ckipfp2in8ld.us-east-1.rds.amazonaws.com",
+      user: "IGonzalez",
+      password: "Crackpokemon94!",
+      database: "IGonzalez_DB"
     })
     pool.query = util.promisify(pool.query)
 
