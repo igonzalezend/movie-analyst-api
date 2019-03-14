@@ -7,7 +7,8 @@ pipeline {
 
 	agent any    
 
-	stages {                                
+	stages {
+
 		stage('Build') {                         
 			steps {                                 
 				echo 'Building..'
@@ -24,23 +25,26 @@ pipeline {
 						dockerImage.push()
 					}
 				}
-				sh 'docker rmi --force $imageTag'
 			}
-		}/**                 
-		stage('Deploy') {                         
-			steps {                                 
+		}                
+		stage('Deploy') {       
+			steps {
 				echo 'Deploying....'
-				input("Deploy the image?")
-				script {
+				withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'ivdgonzalezco', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+					sh 'chmod +x deployment_script.sh'
+					sh './deployment_script.sh $BUILD_NUMBER'
+				}                                 
+				
+				/**script {
 					docker.withRegistry('', credentials){
 						sh 'docker pull $imageTag'
 					}
 				}
 				sh 'docker rm -f $(docker ps -a -q)'
 				sh 'docker run -d -p 8000:8000 $imageTag'
-				sh 'docker image prune -f -a'                                    					
+				sh 'docker image prune -f -a'**/                                    					
 			}                 
-		}**/         
+		}        
 	} 
 } 
 
