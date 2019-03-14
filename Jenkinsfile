@@ -7,22 +7,15 @@ pipeline {
 
 	agent any    
 
-	stages {                 
-		stage('Prepare') {                         
-			steps {                                 
-				echo 'Preparing..'
-				sh  'npm install'
-			}                 
-		}                 
-		/**stage('Build') {                         
+	stages {                                
+		stage('Build') {                         
 			steps {                                 
 				echo 'Building..'
-
 				script {
 					dockerImage = docker.build imageTag
 				}             
 			}                 
-		}                 
+		}/**                 
 		stage('Test') {                         
 			steps {                                 
 				echo 'Testing...'
